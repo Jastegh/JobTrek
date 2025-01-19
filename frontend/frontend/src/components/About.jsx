@@ -38,7 +38,7 @@ const About = () => {
           </div>
         </section>
 
-        <section className="about-section">
+        {/* <section className="about-section">
           <h2>Collaborators</h2>
           <p>
             This project was built as part of the Winter 2025 Hackathon. A heartfelt thank you to our amazing contributors for their dedication and effort in bringing this app to life:
@@ -55,7 +55,7 @@ const About = () => {
           <p>
             We also extend our gratitude to the hackathon organizers and mentors for their invaluable guidance.
           </p>
-        </section>
+        </section> */}
 
         <section className="about-section">
           <h2>Built With</h2>
