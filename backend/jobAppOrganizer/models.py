@@ -12,6 +12,7 @@ class Application(models.Model):
     position = models.CharField(max_length=255)
     date_applied = models.DateField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='APPLIED')
+    link = models.URLField(max_length=500, blank=True, null=True) 
     notes = models.TextField(blank=True, null=True)
 
 

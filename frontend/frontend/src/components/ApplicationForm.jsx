@@ -8,6 +8,7 @@ const ApplicationForm = () => {
     position: '',
     date_applied: '',
     status: 'APPLIED',
+    link: '',
     notes: '',
   });
   const navigate = useNavigate();
@@ -84,6 +85,20 @@ const ApplicationForm = () => {
           </select>
         </div>
       </div>
+
+      <div>
+          <label className="application-form-label">Link:</label>
+          <input
+            type="url"
+            className="application-form-input"
+            value={formData.link}
+            onChange={(e) =>
+              setFormData({ ...formData, link: e.target.value })
+            }
+          />
+        </div>
+
+
       <div className="application-form-grid full-width">
         <div>
           <label className="application-form-label">Notes:</label>

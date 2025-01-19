@@ -15,20 +15,45 @@ const Applications = () => {
     <div className="applications-container">
       <div className="applications-header">
         <h1>Job Applications</h1>
-        <Link to="/applications/create">
-          <button>Add New Application</button>
+        <Link to="/applications/create" className="add-button">
+          Add New Application
         </Link>
       </div>
-      <ul className="application-list">
+      <div className="applications-list">
+        <div className="applications-headings">
+          <span>Position</span>
+          <span>Company</span>
+          <span>Status</span>
+          <span>Link</span>
+          <span>Actions</span>
+        </div>
         {applications.map((app) => (
-          <li key={app.id} className="application-item">
+          <div key={app.id} className="application-item">
+            <span>{app.position}</span>
+            <span>{app.company_name}</span>
+            <span>{app.status}</span>
+
             <span>
-              {app.position} at {app.company_name} ({app.status})
+              {app.link ? (
+                <a
+                  href={app.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-field"
+                >
+                  View
+                </a>
+              ) : (
+                'N/A'
+              )}
             </span>
-            <Link to={`/applications/${app.id}/edit`}>Edit</Link>
-          </li>
+            
+            <Link to={`/applications/${app.id}/edit`} className="edit-link">
+              Edit
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

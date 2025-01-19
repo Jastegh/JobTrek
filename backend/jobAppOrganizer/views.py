@@ -33,6 +33,7 @@ class ApplicationsView(View):
             position=data.get("position"),
             date_applied=data.get("date_applied"),
             status=data.get("status", "APPLIED"),
+            link=data.get("link"),
             notes=data.get("notes", "")
         )
         return JsonResponse({"id": application.id}, status=201)
@@ -47,6 +48,7 @@ class ApplicationDetailView(View):
             "position": application.position,
             "date_applied": application.date_applied,
             "status": application.status,
+            "link": application.link,
             "notes": application.notes,
         })
 

@@ -88,3 +88,7 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.application-form-container div {
+  margin-bottom: 0.7rem;
+}

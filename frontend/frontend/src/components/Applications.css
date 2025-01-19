@@ -1,66 +1,80 @@
-/* Applications.css */
 .applications-container {
-    padding: 2rem;
-    background: var(--background-color);
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-  }
-  
-  .applications-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .applications-header h1 {
-    font-size: 1.8rem;
-    color: var(--text-color);
-  }
-  
-  .applications-header button {
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .applications-header button:hover {
-    background: var(--secondary-color);
-  }
-  
-  .application-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .application-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: var(--card-background);
-    margin-bottom: 0.5rem;
-    border-radius: 6px;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.2s;
-  }
-  
-  .application-item:hover {
-    transform: scale(1.02);
-  }
-  
-  .application-item span {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  
-  .application-item a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  
-  
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.applications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-button {
+  background-color: #28a745;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.add-button:hover {
+  background-color: #218838;
+}
+
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.applications-headings {
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr 2fr 1fr;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-bottom: 2px solid #ddd;
+  background-color: #e9ecef;
+  border-radius: 6px;
+}
+
+.application-item {
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr 2fr 1fr;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.application-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.application-item span {
+  font-size: 1rem;
+}
+
+.edit-link {
+  color: #007bff;
+  text-decoration: none;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.edit-link:hover {
+  background-color: #007bff;
+  color: white;
+}
