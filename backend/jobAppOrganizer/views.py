@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, FileResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -8,6 +8,8 @@ from .models import Application, Resume, ResponseTracking
 from rest_framework.viewsets import ModelViewSet
 from .serializers import ResumeSerializer
 from  rest_framework  import  viewsets
+from django.conf import settings
+import os
 
 
 # Helper function to parse request body
@@ -210,3 +212,11 @@ class ResponseDetailView(View):
         response = get_object_or_404(ResponseTracking, pk=pk)
         response.delete()
         return JsonResponse({"message": "Response deleted successfully."})
+
+# Add this function
+def download_resume(request, pk):
+    resume = get_object_or_404(Resume, pk=pk)
+    file_path = resume.template_file.path
+    response = FileResponse(open(file_path, 'rb'), as_attachment=True)
+    response['Content-Disposition'] = f'attachment; filename="{resume.name}.pdf"'
+    return response

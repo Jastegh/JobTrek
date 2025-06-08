@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Resumes.css';
@@ -42,6 +41,16 @@ const Resumes = () => {
               <Link to={`/resumes/${masterResume.id}/edit`} className="edit-link">
                 Edit
               </Link>
+
+              {' | '}
+                <a
+                  href={masterResume.template_file}
+                  download={masterResume.name}
+                  className="download-link"
+                >
+                  Download
+                </a>
+                
             </div>
           </div>
         </div>
@@ -63,7 +72,20 @@ const Resumes = () => {
               </a>
                 {' '}
               |{' '}
-              <Link to={`http://localhost:8000/media/resumes/${resume.id}/edit`}>Edit</Link>
+              <Link to={`/edit-pdf/${resume.id}`} className="edit-pdf-link">
+                Edit PDF
+              </Link>
+              
+
+              {' | '}
+                <a
+                  href={`http://localhost:8000/api/resumes/download/${resume.id}/`}
+                  className="download-link"
+                >
+                  Download
+                </a>
+
+
               </div>
             </li>
           ))}

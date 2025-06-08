@@ -1,67 +1,48 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import editPDFWithPDFCo from './pdfEditUtils'; // Import the utility function
 
-const EditResume = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    template_file: null,
-  });
+const EditResume = ({ resumeUrl }) => {
+  const [editedPdfUrl, setEditedPdfUrl] = useState(null); // Store the edited PDF URL
+  const [error, setError] = useState(null);
 
-  // Fetch resume details when component loads
-  useEffect(() => {
-    fetch(`http://localhost:8000/api/resumes/${id}/`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFormData({ name: data.name, template_file: null });
-      });
-  }, [id]);
+  const handleEditPDF = async () => {
+    setError(null); // Reset errors
+    const edits = [
+      {
+        text: 'Edited Text: Job Application', // Text to add
+        x: 50, // X-coordinate
+        y: 750, // Y-coordinate (near the top of the page)
+        pages: '0', // Page number (0 = first page)
+        fontSize: 16, // Font size
+        color: 'blue', // Text color
+      },
+    ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = new FormData();
-    data.append("name", formData.name);
-    if (formData.template_file) {
-      data.append("template_file", formData.template_file);
-    }
+    // Call the utility function with the file URL and edits
+    const updatedPdfUrl = await editPDFWithPDFCo(resumeUrl, edits);
 
-    const response = await fetch(`http://localhost:8000/api/resumes/${id}/`, {
-      method: "PUT",
-      body: data,
-    });
-
-    if (response.ok) {
-      alert("Resume updated successfully!");
-      navigate("/resumes");
+    if (updatedPdfUrl) {
+      setEditedPdfUrl(updatedPdfUrl); // Set the URL of the edited PDF
     } else {
-      alert("Error updating resume.");
+      setError('Failed to edit PDF. Please try again.');
     }
   };
 
   return (
     <div>
       <h1>Edit Resume</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Resume Name:
-          <input
-            type="text"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          />
-        </label>
-        <label>
-          Replace File (optional):
-          <input
-            type="file"
-            onChange={(e) =>
-              setFormData({ ...formData, template_file: e.target.files[0] })
-            }
-          />
-        </label>
-        <button type="submit">Save Changes</button>
-      </form>
+      <button onClick={handleEditPDF}>Edit PDF</button>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      {/* Show link to download edited PDF if available */}
+      {editedPdfUrl && (
+        <div>
+          <a href={editedPdfUrl} target="_blank" rel="noopener noreferrer">
+            Download Edited PDF
+          </a>
+        </div>
+      )}
     </div>
   );
 };

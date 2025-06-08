@@ -3,6 +3,8 @@ import './About.css';
 
 const About = () => {
   return (
+    <div className="about-wrapper">
+
     <div className="about-container">
       <div className="about-content">
         <h1>About Job Tracker</h1>
@@ -78,6 +80,7 @@ const About = () => {
           </p>
         </section>
       </div>
+    </div>
     </div>
   );
 };
