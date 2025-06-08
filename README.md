@@ -18,13 +18,6 @@ A personal job application tracker to help you stay organized during your job se
 
 ---
 
-## Requirements 📦
-
-- [Python 3.11+](https://www.python.org/downloads/)
-- [Node.js 20+](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
-
----
 
 ## Setup & Install ⚙️
 
@@ -86,13 +79,6 @@ The frontend will run at: `http://localhost:3000`
 
 ---
 
-## Screenshots 🖼️
-
-| Dashboard | Resume Manager |
-|----------|----------------|
-| ![Dashboard](https://user-images.githubusercontent.com/your-dashboard-thumb.png) | ![Resumes](https://user-images.githubusercontent.com/your-resume-thumb.png) |
-
----
 
 ## Built With 🛠️
 
