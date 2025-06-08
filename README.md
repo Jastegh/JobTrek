@@ -60,7 +60,7 @@ The backend will run at: `http://localhost:8000`
 **Open a new terminal, navigate to the `frontend` directory:**
 
 ```bash
-cd frontend
+cd frontend/frontend
 ```
 
 **Install frontend dependencies:**
@@ -72,10 +72,10 @@ npm install
 **Start the React app:**
 
 ```bash
-npm start
+npm run dev
 ```
 
-The frontend will run at: `http://localhost:3000`
+The frontend will run at: `http://localhost:5173`
 
 ---
 
