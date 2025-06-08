@@ -5,8 +5,7 @@
 A personal job application tracker to help you stay organized during your job search. Track applications, update statuses, and manage resumes, all in one place.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/your-dashboard-screenshot.png" width="380" />
-  <img src="https://user-images.githubusercontent.com/your-about-page-screenshot.png" width="380" />
+  ![image](https://github.com/user-attachments/assets/73f98d13-3e71-4109-a4c2-9e36292cddf3)
 </p>
 
 ---
