@@ -1,5 +1,3 @@
-![Job Tracker Banner](https://user-images.githubusercontent.com/your-banner-here.png)
-
 # Job Tracker 🧭
 
 A personal job application tracker to help you stay organized during your job search. Track applications, update statuses, and manage resumes, all in one place.
